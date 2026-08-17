@@ -50,8 +50,8 @@ The Windows workflow below is the tested and supported setup. Linux has not been
 ## Quick start (Windows)
 
 ```powershell
-git clone https://github.com/<YOUR-ACCOUNT>/<YOUR-REPOSITORY>.git
-cd <YOUR-REPOSITORY>
+git clone https://github.com/GiselleZhou/SATM_MasterProject.git
+cd SATM_MasterProject
 
 conda env create -f environment-windows.yml
 conda activate satm
