@@ -1,0 +1,26 @@
+name: satm
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pytorch=1.9.1
+  - torchvision=0.10.1
+  - cudatoolkit=11.1
+  - ffmpeg
+  - pip
+  - pip:
+      - numpy==1.23.5
+      - scipy
+      - matplotlib==3.3.4
+      - spacy==3.7.5
+      - pydantic==1.10.15
+      - typing-extensions==4.12.2
+      - smplx==0.1.28
+      - imageio-ffmpeg
+      - pillow
+      - tqdm
+      - ftfy
+      - regex
+      - einops
