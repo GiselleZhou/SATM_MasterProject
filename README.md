@@ -35,7 +35,7 @@ The following selected examples demonstrate SATM with a fixed scene image. Each 
 </tr>
 </table>
 
-These are selected qualitative demonstrations. They do not by themselves constitute a statistical comparison against a text-only baseline. Full setup instructions and asset requirements are documented above and in [docs/ASSETS.md](docs/ASSETS.md).
+These are selected qualitative demonstrations. Full setup instructions and asset requirements are documented above and in [docs/ASSETS.md](docs/ASSETS.md).
 
 ## Platform support
 
