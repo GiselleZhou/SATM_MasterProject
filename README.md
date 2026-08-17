@@ -12,24 +12,24 @@ The following selected examples demonstrate SATM with a fixed scene image. Each 
 <tr>
 <td width="50%" align="center">
 <strong>Prompt: <code>a person dances casually</code></strong><br>
-<a href="examples/qualitative_showcase/01_casual_dance/satm_text_scene.mp4"><img src="examples/qualitative_showcase/01_casual_dance/scene_image.png" alt="Scene image for casual dance" width="320"></a><br>
+<img src="examples/qualitative_showcase/01_casual_dance/preview.gif" alt="Generated motion preview for casual dance" width="230"> <img src="examples/qualitative_showcase/01_casual_dance/scene_image.png" alt="Scene image for casual dance" width="230"><br><em>Generated motion preview · scene condition</em><br>
 <a href="examples/qualitative_showcase/01_casual_dance/satm_text_scene.mp4">▶ Watch / download MP4</a> · <a href="examples/qualitative_showcase/01_casual_dance/">Example files</a>
 </td>
 <td width="50%" align="center">
 <strong>Prompt: <code>a person skips rope quickly</code></strong><br>
-<a href="examples/qualitative_showcase/02_rope_skipping/satm_text_scene.mp4"><img src="examples/qualitative_showcase/02_rope_skipping/scene_image.jpg" alt="Scene image for rope skipping" width="320"></a><br>
+<img src="examples/qualitative_showcase/02_rope_skipping/preview.gif" alt="Generated motion preview for rope skipping" width="230"> <img src="examples/qualitative_showcase/02_rope_skipping/scene_image.jpg" alt="Scene image for rope skipping" width="230"><br><em>Generated motion preview · scene condition</em><br>
 <a href="examples/qualitative_showcase/02_rope_skipping/satm_text_scene.mp4">▶ Watch / download MP4</a> · <a href="examples/qualitative_showcase/02_rope_skipping/">Example files</a>
 </td>
 </tr>
 <tr>
 <td width="50%" align="center">
 <strong>Prompt: <code>a person throws punches in a boxing ring</code></strong><br>
-<a href="examples/qualitative_showcase/03_boxing/satm_text_scene.mp4"><img src="examples/qualitative_showcase/03_boxing/scene_image.png" alt="Scene image for boxing" width="320"></a><br>
+<img src="examples/qualitative_showcase/03_boxing/preview.gif" alt="Generated motion preview for boxing" width="230"> <img src="examples/qualitative_showcase/03_boxing/scene_image.png" alt="Scene image for boxing" width="230"><br><em>Generated motion preview · scene condition</em><br>
 <a href="examples/qualitative_showcase/03_boxing/satm_text_scene.mp4">▶ Watch / download MP4</a> · <a href="examples/qualitative_showcase/03_boxing/">Example files</a>
 </td>
 <td width="50%" align="center">
 <strong>Prompt: <code>a person swings a golf club</code></strong><br>
-<a href="examples/qualitative_showcase/04_golf_swing/satm_text_scene.mp4"><img src="examples/qualitative_showcase/04_golf_swing/scene_image.jpg" alt="Scene image for a golf swing" width="320"></a><br>
+<img src="examples/qualitative_showcase/04_golf_swing/preview.gif" alt="Generated motion preview for a golf swing" width="230"> <img src="examples/qualitative_showcase/04_golf_swing/scene_image.jpg" alt="Scene image for a golf swing" width="230"><br><em>Generated motion preview · scene condition</em><br>
 <a href="examples/qualitative_showcase/04_golf_swing/satm_text_scene.mp4">▶ Watch / download MP4</a> · <a href="examples/qualitative_showcase/04_golf_swing/">Example files</a>
 </td>
 </tr>
