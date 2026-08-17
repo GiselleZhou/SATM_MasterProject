@@ -5,6 +5,7 @@ numpy array. This can be used to produce samples for FID evaluation.
 """
 from utils.fixseed import fixseed
 import os
+import subprocess
 import numpy as np
 import torch
 from utils.parser_util import generate_args
@@ -14,7 +15,7 @@ from model.cfg_sampler import ClassifierFreeSampleModel
 from data_loaders.get_data import get_dataset_loader
 from data_loaders.humanml.scripts.motion_process import recover_from_ric
 import data_loaders.humanml.utils.paramUtil as paramUtil
-from data_loaders.humanml.utils.plot_script import plot_3d_motion
+from data_loaders.humanml.utils.plot_script import get_ffmpeg_executable, plot_3d_motion
 import shutil
 from data_loaders.tensors import collate
 
@@ -237,24 +238,25 @@ def main():
 
 def save_multiple_samples(args, out_path, row_print_template, all_print_template, row_file_template, all_file_template,
                           caption, num_samples_in_out_file, rep_files, sample_files, sample_i):
+    def combine_videos(input_files, output_path, layout):
+        command = [get_ffmpeg_executable(), '-y', '-loglevel', 'warning']
+        for input_file in input_files:
+            command.extend(['-i', input_file])
+        if layout and len(input_files) > 1:
+            command.extend(['-filter_complex', f'{layout}=inputs={len(input_files)}'])
+        command.append(output_path)
+        subprocess.run(command, check=True)
+
     all_rep_save_file = row_file_template.format(sample_i)
     all_rep_save_path = os.path.join(out_path, all_rep_save_file)
-    ffmpeg_rep_files = [f' -i {f} ' for f in rep_files]
-    hstack_args = f' -filter_complex hstack=inputs={args.num_repetitions}' if args.num_repetitions > 1 else ''
-    ffmpeg_rep_cmd = f'ffmpeg -y -loglevel warning ' + ''.join(ffmpeg_rep_files) + f'{hstack_args} {all_rep_save_path}'
-    os.system(ffmpeg_rep_cmd)
+    combine_videos(rep_files, all_rep_save_path, 'hstack')
     print(row_print_template.format(caption, sample_i, all_rep_save_file))
     sample_files.append(all_rep_save_path)
     if (sample_i + 1) % num_samples_in_out_file == 0 or sample_i + 1 == args.num_samples:
-        # all_sample_save_file =  f'samples_{(sample_i - len(sample_files) + 1):02d}_to_{sample_i:02d}.mp4'
         all_sample_save_file = all_file_template.format(sample_i - len(sample_files) + 1, sample_i)
         all_sample_save_path = os.path.join(out_path, all_sample_save_file)
         print(all_print_template.format(sample_i - len(sample_files) + 1, sample_i, all_sample_save_file))
-        ffmpeg_rep_files = [f' -i {f} ' for f in sample_files]
-        vstack_args = f' -filter_complex vstack=inputs={len(sample_files)}' if len(sample_files) > 1 else ''
-        ffmpeg_rep_cmd = f'ffmpeg -y -loglevel warning ' + ''.join(
-            ffmpeg_rep_files) + f'{vstack_args} {all_sample_save_path}'
-        os.system(ffmpeg_rep_cmd)
+        combine_videos(sample_files, all_sample_save_path, 'vstack')
         sample_files = []
     return sample_files
 

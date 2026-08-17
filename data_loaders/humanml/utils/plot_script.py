@@ -25,21 +25,26 @@ def list_cut_average(ll, intervals):
     return ll_new
 
 
-def _configure_ffmpeg() -> None:
-    """Use the packaged imageio ffmpeg binary when ffmpeg is not on PATH."""
-    if shutil.which("ffmpeg") is not None:
-        return
+def get_ffmpeg_executable() -> str:
+    """Return a system ffmpeg executable or imageio-ffmpeg fallback."""
+    system_ffmpeg = shutil.which("ffmpeg")
+    if system_ffmpeg is not None:
+        return system_ffmpeg
 
     try:
         import imageio_ffmpeg
-        ffmpeg_path = imageio_ffmpeg.get_ffmpeg_exe()
+        return imageio_ffmpeg.get_ffmpeg_exe()
     except Exception as error:
         raise RuntimeError(
             "MP4 rendering requires ffmpeg. Install the SATM environment from "
             "environment-windows.yml or install imageio-ffmpeg."
         ) from error
 
-    matplotlib.rcParams["animation.ffmpeg_path"] = ffmpeg_path
+
+def _configure_ffmpeg() -> None:
+    """Configure Matplotlib to use the available ffmpeg executable."""
+    matplotlib.rcParams["animation.ffmpeg_path"] = get_ffmpeg_executable()
+
 
 def plot_3d_motion(save_path, kinematic_tree, joints, title, dataset, figsize=(3, 3), fps=120, radius=3,
                    vis_mode='default', gt_frames=[]):
