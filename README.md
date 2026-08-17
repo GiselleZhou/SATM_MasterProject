@@ -44,7 +44,7 @@ The Windows workflow below is the tested and supported setup. Linux has not been
 
 - Windows 10/11, Conda / Miniconda, Git, and an NVIDIA GPU
 - CUDA-capable PyTorch; the tested configuration is Python 3.9, PyTorch 1.9.1, CUDA 11.1
-- `ffmpeg` (installed by the Conda setup)
+- MP4 rendering support: Conda ffmpeg or the bundled imageio-ffmpeg fallback
 - the assets listed in [docs/ASSETS.md](docs/ASSETS.md)
 
 ## Quick start (Windows)
@@ -61,7 +61,7 @@ pip install git+https://github.com/openai/CLIP.git
 python scripts/check_setup.py
 ```
 
-Obtain the assets and place them as documented in [docs/ASSETS.md](docs/ASSETS.md). The checker reports exactly what is missing.
+Obtain the assets and place them as documented in [docs/ASSETS.md](docs/ASSETS.md). The checker reports missing assets and verifies MP4 rendering support.
 
 Generate one video with the provided wrapper:
 

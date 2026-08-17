@@ -1,4 +1,5 @@
 import math
+import shutil
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
@@ -23,6 +24,22 @@ def list_cut_average(ll, intervals):
         ll_new.append(np.mean(ll[l_low:l_high]))
     return ll_new
 
+
+def _configure_ffmpeg() -> None:
+    """Use the packaged imageio ffmpeg binary when ffmpeg is not on PATH."""
+    if shutil.which("ffmpeg") is not None:
+        return
+
+    try:
+        import imageio_ffmpeg
+        ffmpeg_path = imageio_ffmpeg.get_ffmpeg_exe()
+    except Exception as error:
+        raise RuntimeError(
+            "MP4 rendering requires ffmpeg. Install the SATM environment from "
+            "environment-windows.yml or install imageio-ffmpeg."
+        ) from error
+
+    matplotlib.rcParams["animation.ffmpeg_path"] = ffmpeg_path
 
 def plot_3d_motion(save_path, kinematic_tree, joints, title, dataset, figsize=(3, 3), fps=120, radius=3,
                    vis_mode='default', gt_frames=[]):
@@ -124,6 +141,7 @@ def plot_3d_motion(save_path, kinematic_tree, joints, title, dataset, figsize=(3
 
     ani = FuncAnimation(fig, update, frames=frame_number, interval=1000 / fps, repeat=False)
 
+    _configure_ffmpeg()
     # writer = FFMpegFileWriter(fps=fps)
     ani.save(save_path, fps=fps)
     # ani = FuncAnimation(fig, update, frames=frame_number, interval=1000 / fps, repeat=False, init_func=init)
