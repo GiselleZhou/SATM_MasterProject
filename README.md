@@ -6,37 +6,40 @@ This repository contains source code and reproducibility tools. Large assets (tr
 
 ## Selected qualitative examples
 
-The following selected examples demonstrate SATM with a fixed scene image. Each card displays the image supplied to SATM; use **Watch / download MP4** to open the corresponding 3-second generated motion.
+The following selected examples demonstrate SATM with a fixed scene image. Each card shows the generated motion preview on the left and the scene condition on the right. Use **Watch / download MP4** to open the original video file.
 
 <table>
 <tr>
 <td width="50%" align="center">
 <strong>Prompt: <code>a person dances casually</code></strong><br>
-<img src="examples/qualitative_showcase/01_casual_dance/preview.gif" alt="Generated motion preview for casual dance" width="230"> <img src="examples/qualitative_showcase/01_casual_dance/scene_image.png" alt="Scene image for casual dance" width="230"><br><em>Generated motion preview · scene condition</em><br>
-<a href="examples/qualitative_showcase/01_casual_dance/satm_text_scene.mp4">▶ Watch / download MP4</a> · <a href="examples/qualitative_showcase/01_casual_dance/">Example files</a>
+<img src="examples/qualitative_showcase/01_casual_dance/preview.gif" alt="Generated motion preview for casual dance" width="230"> <img src="examples/qualitative_showcase/01_casual_dance/scene_image.png" alt="Scene image for casual dance" width="230"><br><em>Generated motion preview | scene condition</em><br>
+<a href="examples/qualitative_showcase/01_casual_dance/satm_text_scene.mp4">[Play] Watch / download MP4</a> | <a href="examples/qualitative_showcase/01_casual_dance/">Example files</a>
 </td>
 <td width="50%" align="center">
 <strong>Prompt: <code>a person skips rope quickly</code></strong><br>
-<img src="examples/qualitative_showcase/02_rope_skipping/preview.gif" alt="Generated motion preview for rope skipping" width="230"> <img src="examples/qualitative_showcase/02_rope_skipping/scene_image.jpg" alt="Scene image for rope skipping" width="230"><br><em>Generated motion preview · scene condition</em><br>
-<a href="examples/qualitative_showcase/02_rope_skipping/satm_text_scene.mp4">▶ Watch / download MP4</a> · <a href="examples/qualitative_showcase/02_rope_skipping/">Example files</a>
+<img src="examples/qualitative_showcase/02_rope_skipping/preview.gif" alt="Generated motion preview for rope skipping" width="230"> <img src="examples/qualitative_showcase/02_rope_skipping/scene_image.jpg" alt="Scene image for rope skipping" width="230"><br><em>Generated motion preview | scene condition</em><br>
+<a href="examples/qualitative_showcase/02_rope_skipping/satm_text_scene.mp4">[Play] Watch / download MP4</a> | <a href="examples/qualitative_showcase/02_rope_skipping/">Example files</a>
 </td>
 </tr>
 <tr>
 <td width="50%" align="center">
 <strong>Prompt: <code>a person throws punches in a boxing ring</code></strong><br>
-<img src="examples/qualitative_showcase/03_boxing/preview.gif" alt="Generated motion preview for boxing" width="230"> <img src="examples/qualitative_showcase/03_boxing/scene_image.png" alt="Scene image for boxing" width="230"><br><em>Generated motion preview · scene condition</em><br>
-<a href="examples/qualitative_showcase/03_boxing/satm_text_scene.mp4">▶ Watch / download MP4</a> · <a href="examples/qualitative_showcase/03_boxing/">Example files</a>
+<img src="examples/qualitative_showcase/03_boxing/preview.gif" alt="Generated motion preview for boxing" width="230"> <img src="examples/qualitative_showcase/03_boxing/scene_image.png" alt="Scene image for boxing" width="230"><br><em>Generated motion preview | scene condition</em><br>
+<a href="examples/qualitative_showcase/03_boxing/satm_text_scene.mp4">[Play] Watch / download MP4</a> | <a href="examples/qualitative_showcase/03_boxing/">Example files</a>
 </td>
 <td width="50%" align="center">
 <strong>Prompt: <code>a person swings a golf club</code></strong><br>
-<img src="examples/qualitative_showcase/04_golf_swing/preview.gif" alt="Generated motion preview for a golf swing" width="230"> <img src="examples/qualitative_showcase/04_golf_swing/scene_image.jpg" alt="Scene image for a golf swing" width="230"><br><em>Generated motion preview · scene condition</em><br>
-<a href="examples/qualitative_showcase/04_golf_swing/satm_text_scene.mp4">▶ Watch / download MP4</a> · <a href="examples/qualitative_showcase/04_golf_swing/">Example files</a>
+<img src="examples/qualitative_showcase/04_golf_swing/preview.gif" alt="Generated motion preview for a golf swing" width="230"> <img src="examples/qualitative_showcase/04_golf_swing/scene_image.jpg" alt="Scene image for a golf swing" width="230"><br><em>Generated motion preview | scene condition</em><br>
+<a href="examples/qualitative_showcase/04_golf_swing/satm_text_scene.mp4">[Play] Watch / download MP4</a> | <a href="examples/qualitative_showcase/04_golf_swing/">Example files</a>
 </td>
 </tr>
 </table>
 
 These are selected qualitative demonstrations. They do not by themselves constitute a statistical comparison against a text-only baseline. Full setup instructions and asset requirements are documented above and in [docs/ASSETS.md](docs/ASSETS.md).
 
+## Platform support
+
+The Windows workflow below is the tested and supported setup. Linux has not been independently validated for this SATM release; `environment.yml` is retained as a legacy upstream environment reference and should not be treated as a tested Linux installation recipe.
 ## Requirements
 
 - Windows 10/11, Conda / Miniconda, Git, and an NVIDIA GPU
